@@ -120,6 +120,11 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MVCLabDataDBContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\CommentRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ICommentRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IGalleryRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IPictureRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IUserRepository.cs" />
     <Compile Include="Tables\Comment.cs" />
     <Compile Include="Tables\Gallery.cs" />
     <Compile Include="Tables\Picture.cs" />
