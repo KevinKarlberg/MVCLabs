@@ -1,5 +1,6 @@
 ﻿using KevinsMVCLab.HelperClasses;
 using KevinsMVCLab.ViewModels;
+using MVCLabb.Data.Repositories;
 using MVCLabData.Repositories.Interfaces;
 using MVCLabData.Tables;
 using System;
@@ -17,9 +18,9 @@ namespace KevinsMVCLab.Controllers
         // GET: Authentication
         private IUserRepository repo;
 
-        public AuthenticationController(IUserRepository repo)
+        public AuthenticationController()
         {
-            this.repo = repo;
+            this.repo =new UserRepository();
         }
         // GET: Auth
         [HttpGet]

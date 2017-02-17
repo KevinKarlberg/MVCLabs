@@ -1,6 +1,7 @@
 ﻿using KevinsMVCLab.HelperClasses;
 using KevinsMVCLab.ViewModels;
 using MVCLabData;
+using MVCLabData.Repositories;
 using MVCLabData.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -18,12 +19,12 @@ namespace KevinsMVCLab.Controllers
         
 
             private ICommentRepository repo;
-            public CommentController(ICommentRepository repo)
-            {
-                this.repo = repo;
-            }
-            // GET: Comment
-            [AllowAnonymous]
+        public CommentController()
+        {
+            this.repo = new CommentRepository();
+        }
+        // GET: Comment
+        [AllowAnonymous]
             public ActionResult Comments(Guid pictureID)
             {
                 var comments = new List<CommentViewModel>();

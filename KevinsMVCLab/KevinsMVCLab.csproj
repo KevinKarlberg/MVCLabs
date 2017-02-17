@@ -227,10 +227,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Images\1TheDude.PNG" />
-    <Content Include="Images\9entillen.PNG" />
-    <Content Include="Images\9flower.jpg" />
-    <Content Include="Images\9älg.PNG" />
+    <Content Include="Images\AllTheTools.jpg" />
+    <Content Include="Images\BSM.jpg" />
+    <Content Include="Images\mcdonaldsicecream.jpg" />
+    <Content Include="Images\Rhino.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">

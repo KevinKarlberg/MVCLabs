@@ -1,5 +1,6 @@
 ﻿using KevinsMVCLab.HelperClasses;
 using KevinsMVCLab.ViewModels;
+using MVCLabb.Data.Repositories;
 using MVCLabData.Repositories.Interfaces;
 using MVCLabData.Tables;
 using System;
@@ -14,9 +15,9 @@ namespace KevinsMVCLab.Controllers
     public class HomeController : Controller
     {
         private IPictureRepository repo { get; set; }
-        public HomeController(IPictureRepository repo)
+        public HomeController()
         {
-            this.repo = repo;
+            this.repo = new PictureRepository();
         }
         // GET: Home
         public ActionResult Index()

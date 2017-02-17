@@ -1,5 +1,6 @@
 ﻿using KevinsMVCLab.HelperClasses;
 using KevinsMVCLab.ViewModels;
+using MVCLabb.Data.Repositories;
 using MVCLabData.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -16,9 +17,9 @@ namespace KevinsMVCLab.Controllers
         // GET: Gallery
         private IGalleryRepository repo;
 
-        public GalleryController(IGalleryRepository repo)
+        public GalleryController()
         {
-            this.repo = repo;
+            this.repo = new GalleryRepository();
         }
 
         [AllowAnonymous]
