@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -12,11 +13,11 @@ namespace MVCLabData.Tables
             this.Pictures = new HashSet<Picture>();
         }
 
-        public int id { get; set; }
+        public Guid id { get; set; }
         public string GalleryName { get; set; }
         public System.DateTime DateCreated { get; set; }
-        public int UserID { get; set; }
-
+        public Guid UserID { get; set; }
+        [ForeignKey("UserID")]
         public virtual User User { get; set; }
         public virtual ICollection<Picture> Pictures { get; set; }
     }

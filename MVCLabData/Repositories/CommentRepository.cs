@@ -62,7 +62,7 @@ namespace MVCLabData.Repositories
             }
         }
 
-        public Comment ByID(int id)
+        public Comment ByID(Guid id)
         {
             using (var ctx = new MVCLabDataDbContext())
             {
@@ -75,7 +75,7 @@ namespace MVCLabData.Repositories
             }
         }
 
-        public bool Delete(int id)
+        public bool Delete(Guid id)
         {
             using (var ctx = new MVCLabDataDbContext())
             {

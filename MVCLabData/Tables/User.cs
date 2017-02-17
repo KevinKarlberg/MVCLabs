@@ -14,12 +14,11 @@ namespace MVCLabData.Tables
             this.Galleries = new HashSet<Gallery>();
         }
 
-        public int id { get; set; }
+        public Guid id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public System.Guid guid { get; set; }
 
         public virtual ICollection<Comment> Comments { get; set; }
         public virtual ICollection<Picture> Pictures { get; set; }

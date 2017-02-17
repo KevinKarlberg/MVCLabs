@@ -1,0 +1,7 @@
+﻿@model KevinsMVCLab.ViewModels.PictureViewModel
+
+<div class="col-md-3">
+    <a href="@Url.Action("Details","Picture", Model)">
+        <img src="@Url.Content($"{Model.Path}")" alt="@Model.Description" class="thumbnail">
+    </a>
+</div>

@@ -12,16 +12,16 @@ namespace MVCLabData.Tables
             this.Comments = new HashSet<Comment>();
         }
 
-        public int id { get; set; }
+        public Guid id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public string Path { get; set; }
         
-        public int UserID { get; set; }
+        public Guid UserID { get; set; }
         public Nullable<System.DateTime> DatePosted { get; set; }
         public Nullable<System.DateTime> DateEdited { get; set; }
         public bool @public { get; set; }
-        public int GalleryID { get; set; }
+        public Guid GalleryID { get; set; }
 
         public virtual ICollection<Comment> Comments { get; set; }
         public virtual User User { get; set; }

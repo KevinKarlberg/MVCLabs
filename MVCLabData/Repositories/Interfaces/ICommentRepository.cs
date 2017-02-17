@@ -5,16 +5,17 @@ using System.Linq;
 using System.Web;
 using System.Text;
 
+
 namespace MVCLabData.Repositories.Interfaces
 {
-    public class ICommentRepository
+    public interface ICommentRepository
     {
         IEnumerable<Comment> All();
 
-        Comment ByID(int id);
+        Comment ByID(Guid id);
 
         bool AddOrUpdate(Comment comment);
 
-        bool Delete(int id);
+        bool Delete(Guid id);
     }
 }

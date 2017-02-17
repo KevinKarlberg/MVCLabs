@@ -7,7 +7,9 @@ namespace KevinsMVCLab
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
-            filters.Add(new HandleErrorAttribute());
+            filters.Add(new HandleErrorAttribute()); // Hanterar fel som skickas av filtren
+            filters.Add(new AuthorizeAttribute()); // Hanterar authorization för controllers och actions.
+
         }
     }
 }

@@ -1,0 +1,70 @@
+﻿@model KevinsMVCLab.ViewModels.PictureViewModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DatePosted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DatePosted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateEdited)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateEdited)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsPublicPicture)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsPublicPicture)
+        </dd>
+
+    </dl>
+</div>
+
+@using (Html.BeginForm("Delete", "Picture", new { id = Model.id, GalleryID = Model.GalleryID }, FormMethod.Post, new { id = "deletepictureform" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => Model.id);
+    @Html.HiddenFor(m => Model.GalleryID);
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        @Html.ActionLink("Back to image", "Details", "Picture", Model, null)
+    </div>
+}
+
+@section scripts {
+
+    <script src="~/Scripts/deletepicture.js"></script>
+
+}
