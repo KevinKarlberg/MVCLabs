@@ -36,7 +36,7 @@
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li><a href="@Url.Action("Index", "MyPage", new { Area = "Account" })">My Page</a></li>
-                        <li><a href="@Url.Action("Logout", "Auth", new { Area = "" })">Logout</a></li>
+                        <li><a href="@Url.Action("Logout", "Authentication", new { Area = "" })">Logout</a></li>
                     }
                     else
                     {

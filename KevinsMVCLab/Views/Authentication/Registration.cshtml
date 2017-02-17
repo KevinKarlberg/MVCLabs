@@ -5,7 +5,7 @@
 
 <h2>Registration</h2>
 
-@using (Html.BeginForm("Registration", "Auth", FormMethod.Post, new { ID = "registrationform" }))
+@using (Html.BeginForm("Registration", "Authentication", FormMethod.Post, new { ID = "registrationform" }))
 {
     @Html.ValidationSummary(true)
     @Html.AntiForgeryToken()

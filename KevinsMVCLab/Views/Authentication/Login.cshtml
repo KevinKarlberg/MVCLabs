@@ -5,7 +5,7 @@
 
 <h2>Login</h2>
 
-@using (Html.BeginForm("Login", "Auth", FormMethod.Post, new { ID = "loginform" }))
+@using (Html.BeginForm("Login", "Authentication", FormMethod.Post, new { ID = "loginform" }))
 {
     @Html.AntiForgeryToken()
     <p>
