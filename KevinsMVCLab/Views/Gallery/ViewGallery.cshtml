@@ -1,7 +1,14 @@
-﻿
-@{
-    ViewBag.Title = "ViewGallery";
-}
+﻿@model KevinsMVCLab.ViewModels.GalleryViewModel
 
-<h2>ViewGallery</h2>
+<div class="row">
+    <h3>@Model.GalleryName</h3>
+    @if (User.Identity.IsAuthenticated && Model.UserID.ToString() == KevinsMVCLab.HelperClasses.HelpingClass.GetSid(User.Identity))
+    {
 
+        <p>
+            @Html.ActionLink("Add Picture", "Create", "Picture", Model, null)
+        </p>
+    }
+    <hr />
+    @Html.Action("Show", "Picture", Model)
+</div>
