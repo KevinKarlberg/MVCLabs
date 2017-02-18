@@ -1,37 +1,12 @@
-﻿@model KevinsMVCLab.ViewModels.UserViewModel
-@{
-    ViewBag.Title = "Login";
-}
-
-<h2>Login</h2>
-
-@using (Html.BeginForm("Login", "Authentication", FormMethod.Post, new { ID = "loginform" }))
+﻿@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    <p>
-        @Html.ValidationSummary(true)
-    </p>
-    <div class="form-group">
-        @Html.LabelFor(u => u.Email, new { @class = "control-label" })
-        <div>
-            @Html.TextBoxFor(u => u.Email, new { @class = "form-control", Placeholder = "Password" })
-            @Html.ValidationMessageFor(u => u.Email, "", new { @class = "text-danger" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(u => u.Password, new { @class = "control-label" })
-        <div>
+    <h3>Username</h3>
+    @Html.TextBox("username")
+    <h3>Password</h3>
+    @Html.Password("password")
 
-            @Html.PasswordFor(u => u.Password, new { @class = "form-control", Placeholder = "Password" })
-        </div>
-    </div>
-    <br />
-    @Html.ActionLink("Register a new account?", "Registration");
-    <button type="submit" class="btn btn-default">Login</button>
-
-
+    <input type="submit" />
 }
 
-@section scripts{
-    <script src="~/Scripts/login.js"></script>
-}
+@Html.ActionLink("Register", "Register");

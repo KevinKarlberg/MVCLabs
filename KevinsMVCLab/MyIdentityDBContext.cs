@@ -8,7 +8,7 @@ namespace KevinsMVCLab
 {
     public class MyIdentityDBContext : IdentityDbContext<IdentityUser>
     {
-        public MyIdentityDBContext() : base("name = DefaultConnection") {
+        public MyIdentityDBContext() : base("name = IdentityDefault") {
         }
     }
 }
