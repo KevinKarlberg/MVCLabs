@@ -17,7 +17,7 @@ namespace KevinsMVCLab.ViewModels
         [Display(Name = "Created")]
         public DateTime DateCreated { get; set; }
 
-        public Guid UserID { get; set; }
+        public string UserName { get; set; }
 
         public UserViewModel User { get; set; }
     }

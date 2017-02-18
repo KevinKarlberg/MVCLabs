@@ -1,49 +1,21 @@
-﻿@model KevinsMVCLab.ViewModels.UserViewModel
-@{
-    ViewBag.Title = "Registration";
+﻿@{
+    ViewBag.Title = "Register";
 }
 
-<h2>Registration</h2>
-
-@using (Html.BeginForm("Registration", "Authentication", FormMethod.Post, new { ID = "registrationform" }))
+<h2>Register</h2>
+@using (Html.BeginForm())
 {
-    @Html.ValidationSummary(true)
     @Html.AntiForgeryToken()
-    <div class="form-group">
-        @Html.LabelFor(m => m.FirstName, new { @class = "control-label" })
-        <div>
-            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
-        </div>
 
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.LastName, new { @class = "control-label" })
-        <div>
-            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
-        </div>
+    <h3>Username</h3>
+    @Html.TextBox("username")
 
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Email, new { @class = "control-label" })
-        <div>
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+    <h3>Email</h3>
+    @Html.TextBox("email")
 
+    <h3>Password</h3>
+    @Html.Password("password")
 
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Password, new { @class = "control-label" })
-        <div>
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-        </div>
-    </div>
-    <button type="submit" classs="btn btn-default">Register</button>
+    <input type="submit" />
 }
-
-@section scripts{
-    <script src="~/Scripts/registration.js"></script>
-}
+@Html.ActionLink("Login", "Login");

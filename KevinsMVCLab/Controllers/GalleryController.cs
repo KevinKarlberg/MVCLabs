@@ -76,11 +76,11 @@ namespace KevinsMVCLab.Controllers
             if (User.Identity.IsAuthenticated)
             {
                 var identity = (ClaimsIdentity)User.Identity;
-                Guid userID = Guid.Parse(HelpingClass.GetSid(identity));
-                if (userID != null)
+                var accUserName = User.Identity.Name;
+                if (accUserName != null)
                 {
-                    model.DateCreated = DateTime.Now;
-                    model.UserID = userID;
+                    //model.DateCreated = DateTime.Now;
+                    //model.UserID = userID;
 
                     var entity = ModelMapper.ModelToEntity(model);
                     repo.AddOrUpdate(entity);
