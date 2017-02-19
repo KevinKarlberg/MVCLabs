@@ -42,7 +42,7 @@ namespace KevinsMVCLab.Controllers
             return View(galleries);
         }
         [AllowAnonymous]
-        public ActionResult ViewGallery(Guid id)
+        public ActionResult Details(Guid id)
         {
             if (id == null)
             {
@@ -54,6 +54,7 @@ namespace KevinsMVCLab.Controllers
             var galleryID = id;
 
             galleryToView = ModelMapper.EntityToModel(repo.ByID(galleryID));
+            
 
 
             if (galleryToView != null)
@@ -77,10 +78,9 @@ namespace KevinsMVCLab.Controllers
             {
                 var identity = (ClaimsIdentity)User.Identity;
                 var accUserName = User.Identity.Name;
+                model.id = Guid.NewGuid();
                 if (accUserName != null)
                 {
-                    //model.DateCreated = DateTime.Now;
-                    //model.UserID = userID;
 
                     var entity = ModelMapper.ModelToEntity(model);
                     repo.AddOrUpdate(entity);

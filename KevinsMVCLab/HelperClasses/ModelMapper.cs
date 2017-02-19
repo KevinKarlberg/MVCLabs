@@ -7,8 +7,17 @@ using System.Web;
 
 namespace KevinsMVCLab.HelperClasses
 {
-    public class ModelMapper
+    public static class ModelMapper
     {
+        public static List<GalleryViewModel> ToModel(this ICollection<Gallery> entityList)
+        {
+            var model = new List<GalleryViewModel>();
+            var entity = entityList.ToList();
+
+
+            entity.ForEach(x => model.Add(ModelMapper.EntityToModel(x)));
+            return model;
+        }
         public static Gallery ModelToEntity(GalleryViewModel viewModel)
         {
             var model = new Gallery();
@@ -24,6 +33,10 @@ namespace KevinsMVCLab.HelperClasses
         {
             var viewModel = new GalleryViewModel();
             viewModel.id = model.id;
+            for (int i = 0; i < model.Pictures.Count; i++)
+            {
+                viewModel.Pictures.Add(EntityToModel(model.Pictures[i]));
+            }
             viewModel.GalleryName = model.GalleryName;
             viewModel.DateCreated = model.DateCreated;
             viewModel.User = model.User;

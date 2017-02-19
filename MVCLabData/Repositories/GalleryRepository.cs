@@ -20,7 +20,6 @@ namespace MVCLabb.Data.Repositories
                 {
                     var galleryToUpdate = ctx.Galleries.Where(g => g.id == gallery.id)
                             .Include(g => g.Pictures)
-                            .Include(g => g.User)
                             .FirstOrDefault();
                     if (galleryToUpdate != null)
                     {
@@ -34,6 +33,7 @@ namespace MVCLabb.Data.Repositories
                         newGallery.User = gallery.User;
                         newGallery.GalleryName = gallery.GalleryName;
                         newGallery.DateCreated = DateTime.Now;
+                        newGallery.id = gallery.id;
                         ctx.Galleries.Add(newGallery);
                         ctx.SaveChanges();
                         return true;

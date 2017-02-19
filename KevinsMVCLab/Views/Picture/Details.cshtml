@@ -26,7 +26,7 @@
             @Html.LabelFor(m => m.DateEdited)
             @Html.DisplayFor(m => m.DateEdited)
         </p>
-        @if (User.Identity.IsAuthenticated && Model.UserID.ToString() == KevinsMVCLab.HelperClasses.HelpingClass.GetSid(User.Identity))
+        @if (User.Identity.IsAuthenticated && Model.User == User.Identity.Name)
         {
             <p>
                 @Html.ActionLink("Edit", "Edit", "Picture", Model, null) |
