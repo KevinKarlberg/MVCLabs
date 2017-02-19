@@ -18,7 +18,7 @@ namespace KevinsMVCLab.ViewModels
         public DateTime DateCreated { get; set; }
 
         public string User { get; set; }
-        public List<PictureViewModel> Pictures { get; set; }
+        public ICollection<PictureViewModel> Pictures { get; set; }
 
 
     }

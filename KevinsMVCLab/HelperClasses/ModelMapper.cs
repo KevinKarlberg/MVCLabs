@@ -33,10 +33,14 @@ namespace KevinsMVCLab.HelperClasses
         {
             var viewModel = new GalleryViewModel();
             viewModel.id = model.id;
-            for (int i = 0; i < model.Pictures.Count; i++)
+            if (model.Pictures.Count != 0)
             {
-                viewModel.Pictures.Add(EntityToModel(model.Pictures[i]));
+                foreach (var item in model.Pictures)
+                {
+                    viewModel.Pictures.Add(EntityToModel(item));
+                }
             }
+          
             viewModel.GalleryName = model.GalleryName;
             viewModel.DateCreated = model.DateCreated;
             viewModel.User = model.User;
