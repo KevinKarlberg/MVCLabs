@@ -20,8 +20,8 @@ namespace MVCLabb.Data.Repositories
                 {
                     var galleryToUpdate = ctx.Galleries.Where(g => g.id == gallery.id)
                             .Include(g => g.Pictures)
-                            .Include(g => g.User).
-                            FirstOrDefault();
+                            .Include(g => g.User)
+                            .FirstOrDefault();
                     if (galleryToUpdate != null)
                     {
                         galleryToUpdate.GalleryName = gallery.GalleryName;
@@ -54,8 +54,8 @@ namespace MVCLabb.Data.Repositories
             using (var ctx = new MVCLabDataDbContext())
             {
                 var galleries = ctx.Galleries
-                            .Include(g => g.Pictures)
-                            .Include(g => g.User);
+                            .Include(g => g.Pictures);
+
                 return galleries.ToList();
             }
         }
@@ -66,8 +66,7 @@ namespace MVCLabb.Data.Repositories
             {
                 var gallery = ctx.Galleries.Where(g => g.id == id)
                             .Include(g => g.Pictures)
-                            .Include(g => g.User).
-                            FirstOrDefault();
+                            .FirstOrDefault();
                 return gallery;
             }
         }

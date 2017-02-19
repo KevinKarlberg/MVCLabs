@@ -66,8 +66,7 @@ namespace MVCLabb.Data.Repositories
             {
                 var pictures = ctx.Pictures
                         .Include(p => p.Comments)
-                        .Include(p => p.Gallery)
-                        .Include(p => p.User);
+                        .Include(p => p.Gallery);
                 return pictures.ToList();
             }
         }
