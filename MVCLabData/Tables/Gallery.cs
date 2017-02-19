@@ -16,9 +16,7 @@ namespace MVCLabData.Tables
         public Guid id { get; set; }
         public string GalleryName { get; set; }
         public System.DateTime DateCreated { get; set; }
-        public Guid UserID { get; set; }
-        [ForeignKey("UserID")]
-        public virtual User User { get; set; }
+        public string User { get; set; }
         public virtual ICollection<Picture> Pictures { get; set; }
     }
 }

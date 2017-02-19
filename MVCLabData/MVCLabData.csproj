@@ -125,13 +125,10 @@
     <Compile Include="Repositories\Interfaces\ICommentRepository.cs" />
     <Compile Include="Repositories\Interfaces\IGalleryRepository.cs" />
     <Compile Include="Repositories\Interfaces\IPictureRepository.cs" />
-    <Compile Include="Repositories\Interfaces\IUserRepository.cs" />
     <Compile Include="Repositories\PictureRepository.cs" />
-    <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Tables\Comment.cs" />
     <Compile Include="Tables\Gallery.cs" />
     <Compile Include="Tables\Picture.cs" />
-    <Compile Include="Tables\User.cs" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

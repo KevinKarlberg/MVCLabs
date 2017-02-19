@@ -31,7 +31,7 @@ namespace MVCLabb.Data.Repositories
                     else
                     {
                         var newGallery = new Gallery();
-                        newGallery.UserID = gallery.UserID;
+                        newGallery.User = gallery.User;
                         newGallery.GalleryName = gallery.GalleryName;
                         newGallery.DateCreated = DateTime.Now;
                         ctx.Galleries.Add(newGallery);

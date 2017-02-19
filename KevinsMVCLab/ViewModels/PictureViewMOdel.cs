@@ -16,7 +16,7 @@ namespace KevinsMVCLab.ViewModels
         [StringLength(50, ErrorMessage = "Max 140 characters, minimum 5", MinimumLength = 5)]
         public string Description { get; set; }
         public string Path { get; set; }
-        public Guid UserID { get; set; }
+        public string User { get; set; }
         [Display(Name = "Posted")]
         public DateTime? DatePosted { get; set; }
         [Display(Name = "Edited")]

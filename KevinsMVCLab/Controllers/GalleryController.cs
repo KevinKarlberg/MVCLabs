@@ -94,12 +94,9 @@ namespace KevinsMVCLab.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
-                var userID = Guid.Parse(HelpingClass.GetSid(User.Identity));
-
-
                 var galleryToRemove = repo.ByID(galleryID);
 
-                if (galleryToRemove.UserID == userID)
+                if (galleryToRemove.User == User.Identity.Name)
                 {
 
                     if (galleryToRemove.Pictures != null)

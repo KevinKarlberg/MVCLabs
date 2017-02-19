@@ -52,7 +52,7 @@ namespace KevinsMVCLab.Controllers
         public ActionResult Create(PictureViewModel model, HttpPostedFileBase photo)
         {
             //Thread.Sleep(5000);
-            model.UserID = Guid.Parse(HelpingClass.GetSid(User.Identity));
+            model.User = User.Identity.Name;
             model.DatePosted = DateTime.Now;
             string pictureFolder = Server.MapPath("~/Images");
 
@@ -61,7 +61,7 @@ namespace KevinsMVCLab.Controllers
             if (photo != null && photo.ContentLength > 0)
             {
 
-                fileName = model.UserID.ToString() + model.GalleryID.ToString() + Path.GetFileName(photo.FileName);
+                fileName = model.User + model.GalleryID.ToString() + Path.GetFileName(photo.FileName);
                 if (!HelpingClass.IsFilePicture(fileName))
                 {
                     return Content("The file must be a picture in the format png, jpg or jpeg");
@@ -151,7 +151,7 @@ namespace KevinsMVCLab.Controllers
             if (file != null && file.ContentLength > 0)
             {
 
-                fileName = model.UserID.ToString() + model.GalleryID.ToString() + Path.GetFileName(file.FileName);
+                fileName = model.User + model.GalleryID.ToString() + Path.GetFileName(file.FileName);
                 path = Path.Combine(pictureFolder, fileName);
 
                 file.SaveAs(path);

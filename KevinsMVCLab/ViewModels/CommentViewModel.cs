@@ -16,7 +16,7 @@ namespace KevinsMVCLab.ViewModels
         [StringLength(140, ErrorMessage = "Max 140 Characters!")]
         [DataType(DataType.MultilineText)]
         public string Comment { get; set; }
-        public Guid UserID { get; set; }
+        public string User { get; set; }
         public Guid PictureID { get; set; }
 
         [Display(Name = "Posted")]
@@ -25,6 +25,6 @@ namespace KevinsMVCLab.ViewModels
         public DateTime? DateEdited { get; set; }
 
         public PictureViewModel Picture { get; set; }
-        public UserViewModel User { get; set; }
+
     }
 }

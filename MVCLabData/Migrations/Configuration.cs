@@ -26,7 +26,6 @@ namespace MVCLabData.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-            context.Users.AddOrUpdate(new Tables.User { id = Guid.Parse("{3027308A-5C93-4694-869A-BA40F042F94C}"), FirstName = "Kevin", LastName = "Karlberg", Password = "temppass22", Email = "KevinKarlberg@hotmail.se" });
         }
     }
 }

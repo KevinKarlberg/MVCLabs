@@ -35,7 +35,7 @@ namespace MVCLabData.Repositories
                         newComment.Body = comment.Body;
                         newComment.DatePosted = comment.DatePosted;
                         newComment.DateEdited = comment.DateEdited;
-                        newComment.UserID = comment.UserID;
+                        newComment.User = comment.User;
                         newComment.PictureID = comment.PictureID;
                         ctx.Comments.Add(newComment);
                         ctx.SaveChanges();
