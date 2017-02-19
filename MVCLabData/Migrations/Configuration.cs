@@ -10,6 +10,7 @@ namespace MVCLabData.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(MVCLabData.MVCLabDataDbContext context)

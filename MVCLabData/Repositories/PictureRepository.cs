@@ -76,7 +76,6 @@ namespace MVCLabb.Data.Repositories
             using (var ctx = new MVCLabDataDbContext())
             {
                 var picture = ctx.Pictures.Where(p => p.id == id)
-                        .Include(p => p.User)
                         .Include(p => p.Comments)
                         .Include(p => p.Gallery)
                         .FirstOrDefault();
