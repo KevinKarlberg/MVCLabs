@@ -17,7 +17,6 @@ namespace MVCLabData.Repositories
                 using (var ctx = new MVCLabDataDbContext())
                 {
                     var commentToUpdate = ctx.Comments.Where(c => c.id == comment.id)
-                        .Include(c => c.User)
                         .Include(c => c.Picture)
                         .FirstOrDefault();
                     if (commentToUpdate != null)
@@ -55,7 +54,6 @@ namespace MVCLabData.Repositories
             using (var ctx = new MVCLabDataDbContext())
             {
                 var comments = ctx.Comments
-                    .Include(c => c.User)
                     .Include(c => c.Picture)
                         .Include(c => c.Picture.User);
                 return comments.ToList();
@@ -67,7 +65,6 @@ namespace MVCLabData.Repositories
             using (var ctx = new MVCLabDataDbContext())
             {
                 var comment = ctx.Comments.Where(c => c.id == id)
-                        .Include(c => c.User)
                         .Include(c => c.Picture)
                             .Include(c => c.Picture.User)
                         .FirstOrDefault();
@@ -80,7 +77,6 @@ namespace MVCLabData.Repositories
             using (var ctx = new MVCLabDataDbContext())
             {
                 var comment = ctx.Comments.Where(c => c.id == id)
-                        .Include(c => c.User)
                         .Include(c => c.Picture)
                         .FirstOrDefault();
                 if (comment != null)

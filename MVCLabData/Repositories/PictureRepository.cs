@@ -19,7 +19,6 @@ namespace MVCLabb.Data.Repositories
                 using (var ctx = new MVCLabDataDbContext())
                 {
                     var pictureToUpdate = ctx.Pictures.Where(p => p.id == picture.id)
-                        .Include(p => p.User)
                         .Include(p => p.Comments)
                         .Include(p => p.Gallery)
                         .FirstOrDefault();
@@ -88,7 +87,6 @@ namespace MVCLabb.Data.Repositories
             using (var ctx = new MVCLabDataDbContext())
             {
                 var picture = ctx.Pictures.Where(p => p.id == id)
-                        .Include(p => p.User)
                         .Include(p => p.Comments)
                         .Include(p => p.Gallery)
                         .FirstOrDefault();
