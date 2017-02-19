@@ -66,10 +66,9 @@ namespace MVCLabb.Data.Repositories
             {
                 var pictures = ctx.Pictures
                         .Include(p => p.Comments)
-                        .Include(p => p.Gallery);
-
-                
-                        return pictures.ToList();
+                        .Include(p => p.Gallery)
+                        .Include(p => p.User);
+                return pictures.ToList();
             }
         }
 
@@ -78,6 +77,7 @@ namespace MVCLabb.Data.Repositories
             using (var ctx = new MVCLabDataDbContext())
             {
                 var picture = ctx.Pictures.Where(p => p.id == id)
+                        .Include(p => p.User)
                         .Include(p => p.Comments)
                         .Include(p => p.Gallery)
                         .FirstOrDefault();
@@ -90,6 +90,7 @@ namespace MVCLabb.Data.Repositories
             using (var ctx = new MVCLabDataDbContext())
             {
                 var picture = ctx.Pictures.Where(p => p.id == id)
+                        .Include(p => p.User)
                         .Include(p => p.Comments)
                         .Include(p => p.Gallery)
                         .FirstOrDefault();
