@@ -8,6 +8,10 @@ namespace KevinsMVCLab.ViewModels
 {
     public class GalleryViewModel
     {
+        public GalleryViewModel()
+        {
+            this.Pictures = new List<PictureViewModel>();
+        }
         public Guid id { get; set; }
         [Required(ErrorMessage = "Required")]
         [StringLength(50, MinimumLength = 5, ErrorMessage = "Minimum 5, Maximum 50 Characters")]

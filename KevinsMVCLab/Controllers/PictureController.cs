@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 
@@ -51,7 +52,7 @@ namespace KevinsMVCLab.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(PictureViewModel model, HttpPostedFileBase photo)
         {
-            //Thread.Sleep(5000);
+            Thread.Sleep(5000);
             model.User = User.Identity.Name;
             model.DatePosted = DateTime.Now;
             string pictureFolder = Server.MapPath("~/Images");

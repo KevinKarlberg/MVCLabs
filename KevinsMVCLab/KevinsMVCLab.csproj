@@ -279,7 +279,7 @@
     <Content Include="Views\Error\InternalError.cshtml" />
     <Content Include="Views\Gallery\Create.cshtml" />
     <Content Include="Views\Gallery\Index.cshtml" />
-    <Content Include="Views\Gallery\ViewGallery.cshtml" />
+    <Content Include="Views\Gallery\Details.cshtml" />
     <Content Include="Views\Picture\Show.cshtml" />
     <Content Include="Views\Picture\Details.cshtml" />
     <Content Include="Views\Picture\Edit.cshtml" />

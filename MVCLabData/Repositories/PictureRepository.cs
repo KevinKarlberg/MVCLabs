@@ -27,6 +27,7 @@ namespace MVCLabb.Data.Repositories
                     if (pictureToUpdate != null)
                     {
                         pictureToUpdate.Name = picture.Name;
+                        pictureToUpdate.id = picture.id;
                         pictureToUpdate.GalleryID = picture.GalleryID;
                         pictureToUpdate.Path = picture.Path;
                         pictureToUpdate.@public = picture.@public;
@@ -39,6 +40,7 @@ namespace MVCLabb.Data.Repositories
                     {
                         var newPicture = new Picture();
                         newPicture.Name = picture.Name;
+                        newPicture.id = Guid.NewGuid();
                         newPicture.GalleryID = picture.GalleryID;
                         newPicture.Path = picture.Path;
                         newPicture.@public = picture.@public;
