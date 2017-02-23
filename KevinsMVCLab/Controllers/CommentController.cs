@@ -3,6 +3,7 @@ using KevinsMVCLab.ViewModels;
 using MVCLabData;
 using MVCLabData.Repositories;
 using MVCLabData.Repositories.Interfaces;
+using MVCLabData.Tables;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,10 +44,20 @@ namespace KevinsMVCLab.Controllers
 
         public ActionResult NewComment(PictureViewModel picture)
         {
-            var newComment = new CommentViewModel();
-            newComment.PictureID = picture.id;
-
-            return View(newComment);
+            var repo = new CommentRepository();
+            var list = new List<Comment>();
+            var commentlist = repo.All().ToList();
+            for (int i = 0; i < commentlist.Count; i++)
+            {
+                if (commentlist[i].PictureID == picture.id)
+                    list.Add(commentlist[i]);
+            }
+            var commentViewModelList = new List<CommentViewModel>();
+            for (int i = 0; i < list.Count; i++)
+            {
+                commentViewModelList.Add(ModelMapper.EntityToModel(list[i]));
+            }
+            return View(commentViewModelList);
         }
 
         [HttpPost]
@@ -55,7 +66,6 @@ namespace KevinsMVCLab.Controllers
         {
 
             var identity = (ClaimsIdentity)User.Identity;
-            var sid = identity.Claims.First(x => x.Type == ClaimTypes.Sid);
             model.User = User.Identity.Name;
 
             model.DatePosted = DateTime.Now;

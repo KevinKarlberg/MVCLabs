@@ -54,8 +54,7 @@ namespace MVCLabData.Repositories
             using (var ctx = new MVCLabDataDbContext())
             {
                 var comments = ctx.Comments
-                    .Include(c => c.Picture)
-                        .Include(c => c.Picture.User);
+                    .Include(c => c.Picture);
                 return comments.ToList();
             }
         }
