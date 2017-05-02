@@ -121,7 +121,7 @@ namespace KevinsMVCLab.Controllers
                     }
                 }
 
-                return Json(Url.Action("ViewGallery", "Gallery", new { id = GalleryID }));
+                return Json(Url.Action("Index", "Gallery", new { id = GalleryID }));
             }
             return Json(Request.UrlReferrer.ToString());
         }

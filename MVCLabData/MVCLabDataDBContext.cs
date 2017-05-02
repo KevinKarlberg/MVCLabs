@@ -11,13 +11,12 @@ namespace MVCLabData
 {
     public class MVCLabDataDbContext : DbContext
     {
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
-        }
-        public MVCLabDataDbContext() : base ("name=DefaultConnection")
+        public MVCLabDataDbContext() : base("name=DefaultConnection")
         {
 
+            this.Configuration.LazyLoadingEnabled = false;
+            
+            
         }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Picture> Pictures { get; set; }

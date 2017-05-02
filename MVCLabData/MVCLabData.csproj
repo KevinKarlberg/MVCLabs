@@ -117,6 +117,10 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\201705022120568_im.cs" />
+    <Compile Include="Migrations\201705022120568_im.Designer.cs">
+      <DependentUpon>201705022120568_im.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MVCLabDataDBContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -130,7 +134,11 @@
     <Compile Include="Tables\Gallery.cs" />
     <Compile Include="Tables\Picture.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201705022120568_im.resx">
+      <DependentUpon>201705022120568_im.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
