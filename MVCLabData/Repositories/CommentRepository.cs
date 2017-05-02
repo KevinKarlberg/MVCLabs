@@ -29,14 +29,7 @@ namespace MVCLabData.Repositories
                     }
                     else
                     {
-                        var newComment = new Comment();
-                        newComment.Title = comment.Title;
-                        newComment.Body = comment.Body;
-                        newComment.DatePosted = comment.DatePosted;
-                        newComment.DateEdited = comment.DateEdited;
-                        newComment.User = comment.User;
-                        newComment.PictureID = comment.PictureID;
-                        ctx.Comments.Add(newComment);
+                        ctx.Comments.Add(comment);
                         ctx.SaveChanges();
                         return true;
                     }

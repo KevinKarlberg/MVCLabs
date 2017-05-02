@@ -1,4 +1,6 @@
-﻿$('document').ready(function (e) {
+﻿/// <reference path="sweetalert.min.js" />
+
+$('document').ready(function (e) {
     addEventListeners();
 
     setInterval(reloadComments, 5000);

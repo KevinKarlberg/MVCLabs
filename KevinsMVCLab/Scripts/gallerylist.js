@@ -1,4 +1,5 @@
-﻿var galleryContainer = $("#gallerylistcontainer");
+﻿/// <reference path="sweetalert.min.js" />
+var galleryContainer = $("#gallerylistcontainer");
 
 $('document').ready(function (e) {
 

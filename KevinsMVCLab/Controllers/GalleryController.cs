@@ -83,18 +83,22 @@ namespace KevinsMVCLab.Controllers
                 {
 
                     var entity = ModelMapper.ModelToEntity(model);
+                    entity.User = User.Identity.Name;
+                    entity.DateCreated = DateTime.Now;
                     repo.AddOrUpdate(entity);
                 }
                 return RedirectToAction("Index", "Gallery");
             }
             return Redirect(Request.UrlReferrer.ToString());
         }
-        [HttpPost]
-        public ActionResult Delete(Guid galleryID)
+
+        [AllowAnonymous]
+        
+        public ActionResult Delete(Guid id)
         {
             if (User.Identity.IsAuthenticated)
             {
-                var galleryToRemove = repo.ByID(galleryID);
+                var galleryToRemove = repo.ByID(id);
 
                 if (galleryToRemove.User == User.Identity.Name)
                 {
@@ -113,8 +117,11 @@ namespace KevinsMVCLab.Controllers
                     }
 
 
-                    repo.Delete(galleryToRemove.id);
-                    return Content("Gallery deleted!");
+                    if (repo.Delete(galleryToRemove.id))
+                        return Content("Gallery deleted!");
+                    else
+                        return Content("Couldn't delete gallery");
+
                 }
             }
             return Content("Couldn't delete gallery");

@@ -1,4 +1,6 @@
-﻿var loginform = $('#loginform');
+﻿/// <reference path="sweetalert.min.js" />
+
+var loginform = $('#loginform');
 
 loginform.on('submit', function (e) {
     e.preventDefault();

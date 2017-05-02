@@ -1,0 +1,24 @@
+﻿@model KunskapskollenSite.Models.AdressViewModel
+
+@{
+    var options = new AjaxOptions()
+    {
+        HttpMethod = "POST",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = Model.Id.ToString(),
+    };
+
+}
+<div id="@Model.Id">
+    @using (Ajax.BeginForm("SaveEdit", options))
+    {
+        @Html.HiddenFor(m => m.Id)
+        @Html.HiddenFor(m => m.Updaterades)
+        <div class="col-xs-3">@Html.DisplayFor(model => model.Id)</div>
+        <div class="col-xs-1">@Html.TextBoxFor(model => model.Namn)</div>
+        <div class="col-xs-2">@Html.TextBoxFor(model => model.Telefonnummer)</div>
+        <div class="col-xs-2">@Html.TextBoxFor(model => model.Adress)</div>
+        <div class="col-xs-2">@Html.DisplayFor(model => model.Updaterades)</div>
+        <div class="col-xs-2"><input type="submit" value="Save" /></div>
+    }
+</div>

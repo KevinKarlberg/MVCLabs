@@ -36,6 +36,10 @@
 
             </div>
         }
+          @if (User.Identity.IsAuthenticated)
+        {
+            @Html.Action("newComment", "Comment", Model)
+        }
         else
         {
             @Html.ActionLink("Login to post comments", "Login", "Authentication")
@@ -51,13 +55,14 @@
         </span>
         <hr />
         <div id="commentcontainer">
+            @Html.Action("Comments", "Comment", new { pictureID = Model.id })
         </div>
     </div>
 
 </div>
 
 @section scripts{
-    <script src="~/Scripts/comments.js"></script>
+    <script src="~/Scripts/comment.js"></script>
 }
 
 

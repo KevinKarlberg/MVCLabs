@@ -83,7 +83,7 @@ namespace KevinsMVCLab.Controllers
 
             authorisationManager.SignIn(identity);
 
-            return RedirectToAction("Index", "Album");
+            return RedirectToAction("Index", "Gallery");
         }
 
         public ActionResult Logout()

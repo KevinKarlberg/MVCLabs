@@ -1,0 +1,33 @@
+﻿@model IEnumerable<KunskapskollenSite.Models.AdressViewModel>
+
+<div class="row">
+    <div class="col-xs-3">@Html.DisplayNameFor(model => model.Id)</div>
+    <div class="col-xs-1">@Html.DisplayNameFor(model => model.Namn)</div>
+    <div class="col-xs-2">@Html.DisplayNameFor(model => model.Telefonnummer)</div>
+    <div class="col-xs-2">@Html.DisplayNameFor(model => model.Adress)</div>
+    <div class="col-xs-2">@Html.DisplayNameFor(model => model.Updaterades)</div>
+</div>
+
+<hr />
+@foreach (var item in Model)
+{
+
+    var options = new AjaxOptions
+    {
+        HttpMethod = "POST",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = item.Id.ToString(),
+    };
+
+    <div id="@item.Id" class="row">
+        <div class="col-xs-3">@Html.DisplayFor(modelItem => item.Id)</div>
+        <div class="col-xs-1">@Html.DisplayFor(modelItem => item.Namn)</div>
+        <div class="col-xs-2">@Html.DisplayFor(modelItem => item.Telefonnummer)</div>
+        <div class="col-xs-2">@Html.DisplayFor(modelItem => item.Adress)</div>
+        <div class="col-xs-2">@Html.DisplayFor(modelItem => item.Updaterades)</div>
+        <div class="col-xs-2">@Ajax.ActionLink("Edit", "Edit", new { id = item.Id}, options) | @Ajax.ActionLink("Delete", "Delete", new { id = item.Id }, options)   </div>
+        <hr />    
+    </div>
+  
+
+}

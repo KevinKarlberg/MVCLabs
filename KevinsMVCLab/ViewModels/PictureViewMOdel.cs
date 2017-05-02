@@ -26,5 +26,6 @@ namespace KevinsMVCLab.ViewModels
         public bool IsPublicPicture { get; set; }
         public Guid GalleryID { get; set; }
         public string Uploader { get; set; }
+        public List<CommentViewModel> Comments { get; set; }
     }
 }

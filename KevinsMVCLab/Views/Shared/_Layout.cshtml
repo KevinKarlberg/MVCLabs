@@ -25,9 +25,7 @@
                 <ul class="nav navbar-nav navbar-left">
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li>
-                            <a href="@Url.Action("Index", "MyPage", new { Area = "Account" })">Hello, @User.Identity.Name</a>
-                        </li>
+                      
 
                     }
                     <li><a href="@Url.Action("Index", "Gallery", new { Area = "" })">Gallery</a></li>
@@ -35,7 +33,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li><a href="@Url.Action("Index", "MyPage", new { Area = "Account" })">My Page</a></li>
+                      
                         <li><a href="@Url.Action("Logout", "Authentication", new { Area = "" })">Logout</a></li>
                     }
                     else

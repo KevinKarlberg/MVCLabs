@@ -75,19 +75,26 @@ namespace MVCLabb.Data.Repositories
         {
             using (var ctx = new MVCLabDataDbContext())
             {
-                var gallery = ctx.Galleries.Where(g => g.id == id)
-                            .Include(g => g.Pictures)
-                            .Include(g => g.User).
-                            FirstOrDefault();
+                var gallery = ctx.Galleries.FirstOrDefault(g => g.id == id);
+                            
 
                 if (gallery != null)
                 {
-                    ctx.Galleries.Remove(gallery);
-                    ctx.SaveChanges();
-                    return true;
+                    try
+                    {
+                        ctx.Galleries.Remove(gallery);
+                        ctx.SaveChanges();
+                        return true;
+                    }
+                    catch (Exception)
+                    {
+
+                        return false;
+                    }
+                 
                 }
+                return false;
             }
-            return false;
         }
     }
 }

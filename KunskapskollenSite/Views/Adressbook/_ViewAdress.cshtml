@@ -1,0 +1,15 @@
+﻿@model KunskapskollenSite.Models.AdressViewModel
+@{ 
+    var options = new AjaxOptions()
+    {
+        HttpMethod = "POST",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = Model.Id.ToString(),
+    };
+}
+<div class="col-xs-3">@Html.DisplayFor(model => model.Id)</div>
+<div class="col-xs-1">@Html.DisplayFor(model => model.Namn)</div>
+<div class="col-xs-2">@Html.DisplayFor(model => model.Telefonnummer)</div>
+<div class="col-xs-2">@Html.DisplayFor(model => model.Adress)</div>
+<div class="col-xs-2">@Html.DisplayFor(model => model.Updaterades)</div>
+<div class="col-xs-2">@Ajax.ActionLink("Edit", "Edit", new { id = Model.Id }, options) | @Ajax.ActionLink("Delete", "Delete", new { id = Model.Id }, options)   </div>

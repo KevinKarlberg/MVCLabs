@@ -1,0 +1,48 @@
+﻿@model KunskapskollenSite.Models.AdressViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Index</h2>
+@{
+    var options = new AjaxOptions
+    {
+        HttpMethod = "POST",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "CreateNewAdress",
+    };
+}
+
+<button type="button" class="btn btn-default" id="showAdressField">Add new adress</button>
+@using (Ajax.BeginForm("Create", null, options, new { id = "formCreate", @class = "hidden" }))
+{
+    @Html.LabelFor(model => model.Namn, htmlAttributes: new { @class = "control-label col-md-2" })
+    @Html.EditorFor(model => model.Namn, new { htmlAttributes = new { @class = "txt form-control" } })
+    @Html.ValidationMessageFor(model => model.Namn, "", new { @class = "text-danger" })
+
+    @Html.LabelFor(model => model.Telefonnummer, htmlAttributes: new { @class = "control-label col-md-2" })
+    @Html.EditorFor(model => model.Telefonnummer, new { htmlAttributes = new { @class = "txt form-control" } })
+    @Html.ValidationMessageFor(model => model.Telefonnummer, "", new { @class = "text-danger" })
+
+    @Html.LabelFor(model => model.Adress, htmlAttributes: new { @class = "control-label col-md-2" })
+    @Html.EditorFor(model => model.Adress, new { htmlAttributes = new { @class = "txt form-control" } })
+    @Html.ValidationMessageFor(model => model.Adress, "", new { @class = "text-danger" })
+
+    <input type="submit" value="Lägg till Adress" id="AddAdress" />
+}
+<div id="CreateNewAdress">
+    @{
+        Html.RenderAction("List");
+    }
+
+</div>
+<style>
+    .hidden {
+        display: none;
+        visibility: hidden;
+    }
+
+    .Show {
+        display: visibility: visible;
+    }
+</style>

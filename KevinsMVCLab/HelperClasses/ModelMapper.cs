@@ -85,7 +85,6 @@ namespace KevinsMVCLab.HelperClasses
             model.IsPublicPicture = entity.@public;
             model.Uploader = entity.User;
 
-
             return model;
 
 
